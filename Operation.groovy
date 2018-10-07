@@ -1,31 +1,31 @@
 enum Operation {
 
     A_PLUS_B {
-        double invert(double a, double c) { c - a }
-        String combine(String a, String b) { "$a + $b"}
+        double perform(double a, double b) { a + b }
+        String combine(String a, String b) { "($a + $b)"}
     },
     A_MINUS_B {
-        double invert(double a, double c) { a - c }
-        String combine(String a, String b) { "$a - $b"}
+        double perform(double a, double b) { a - b }
+        String combine(String a, String b) { "($a - $b)"}
     },
     B_MINUS_A {
-        double invert(double a, double c) { a + c }
-        String combine(String a, String b) { "$b - $a"}
+        double perform(double a, double b) { b - a }
+        String combine(String a, String b) { "($b - $a)"}
     },
     A_TIMES_B {
-        double invert(double a, double c) { c / a }
-        String combine(String a, String b) { "$a * ($b)"}
+        double perform(double a, double b) { a * b }
+        String combine(String a, String b) { "($a)*($b)"}
     },
     A_OVER_B {
-        double invert(double a, double c) { a / c }
+        double perform(double a, double b) { a / b }
         String combine(String a, String b) { "($a)/($b)"}
     },
     B_OVER_A {
-        double invert(double a, double c) { a * c }
+        double perform(double a, double b) { b / a }
         String combine(String a, String b) { "($b)/($a)"}
     }
 
-    abstract double invert(double a, double c)
+    abstract double perform(double a, double b)
 
     abstract String combine(String a, String b)
 
